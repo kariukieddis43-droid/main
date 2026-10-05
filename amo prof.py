@@ -2345,6 +2345,11 @@ def robots_txt():
     return Response(body, mimetype='text/plain')
 
 
+@app.route('/google278cf7cb7a916811.html')
+def google_site_verification():
+    return send_from_directory(app.root_path, 'google278cf7cb7a916811.html')
+
+
 @app.route('/sitemap.xml')
 def sitemap_xml():
     namespace = 'http://www.sitemaps.org/schemas/sitemap/0.9'
