@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: prof-amon
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --bind 0.0.0.0:$PORT --workers 1 --threads 4 --timeout 120 wsgi:app
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: APP_ENV
+        value: production
+      - key: SESSION_COOKIE_SECURE
+        value: "true"
